@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platformPrefab: {fileID: 6872093926393264064, guid: 3a11d27a8f7c6e843b0841c304c2a0a5, type: 3}
+  sphereTransform: {fileID: 1776324967}
   spawnRadius: 10
   numPlatforms: 10
 --- !u!1 &963194225

@@ -6,6 +6,7 @@ public class PlatformSpawner : MonoBehaviour
 {
     // Platform prefab
     public GameObject platformPrefab;
+    public Transform sphereTransform;
 
     public float spawnRadius = 10.0f;
     public int numPlatforms = 10;
@@ -35,7 +36,7 @@ public class PlatformSpawner : MonoBehaviour
             {
                 if (!hit.collider.gameObject.CompareTag("Platform"))
                 {
-                    Instantiate(platformPrefab, hit.point, Quaternion.LookRotation(hit.normal));
+                    Instantiate(platformPrefab, hit.point, Quaternion.LookRotation(hit.normal), sphereTransform);
                 }
             }
         }
