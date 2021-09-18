@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sphere : MonoBehaviour
 {
-    float factor = 0.1f;
+    float factor = 0.01f;
     // Update is called once per frame
     void Update()
     {
