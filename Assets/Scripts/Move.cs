@@ -21,8 +21,8 @@ public class Move : MonoBehaviour
     [SerializeField]
     UpdateScore scoreUI;
 
-    [SerializeField]
-    GameObject gameOverUI;
+    //[SerializeField]
+    //GameObject gameOverUI;
 
     public LayerMask groundLayers;
 
@@ -52,14 +52,14 @@ public class Move : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         collider = GetComponent<CapsuleCollider>();
         scoreUI.SetInitialScore(100);
-        gameOverUI.SetActive(false);
+       // gameOverUI.SetActive(false);
     }
 
     void Update()
     {
         if (energy <= 0)
         {
-            gameOverUI.SetActive(true);
+            //gameOverUI.SetActive(true);
             Time.timeScale = 0f;
         }
 

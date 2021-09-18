@@ -6,7 +6,37 @@ ModelImporter:
   - first:
       74: 1827226128182048838
     second: Take 001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default_Material
+    second: {fileID: 2100000, guid: 6fc7db255d8ce4a41a8ba7e4dbf6f8ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 197a54827aacb834a8b7ca51f4c8cc57, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: landmarkred_shdr
+    second: {fileID: 2100000, guid: d1a4cf69e875e894684ad6ddf7deb772, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: landmarkwhite_shdr
+    second: {fileID: 2100000, guid: 8d6b7203c0197ee49ad7c668ebfba128, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mountain_shdr
+    second: {fileID: 2100000, guid: 42a56eeaee57d604e96528cb0d2224ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wave_shdr
+    second: {fileID: 2100000, guid: 92a5c8db8f2a39f4483c3a04b84f5582, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
