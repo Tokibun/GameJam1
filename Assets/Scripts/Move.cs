@@ -7,10 +7,10 @@ public class Move : MonoBehaviour
 {
     private float speed = 0.8f;
     private float jumpForcce = 0.03f;
-    
+
     public LayerMask groundLayers;
-    
-    
+
+
     private Rigidbody rigidbody;
     private CapsuleCollider collider;
     private Transform transform;
@@ -23,8 +23,8 @@ public class Move : MonoBehaviour
 
     void Update()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        float moveHorizontal = 0;//Input.GetAxis("Horizontal");
+        float moveVertical = 0;//Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
         rigidbody.AddForce(movement*speed);
         if (Input.GetButton("Jump") && isOnGround())
@@ -39,4 +39,3 @@ public class Move : MonoBehaviour
             new Vector3(collider.bounds.center.x, collider.bounds.min.y, collider.bounds.center.z), collider.radius *.9f, groundLayers);
     }
 }
-    
