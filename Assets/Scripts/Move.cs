@@ -6,12 +6,12 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     public int timesJumped = 0;
-    
+
     private float speed = 0.8f;
     private float jumpForcce = 0.03f;
     private bool playerJumped = false;
 
-    private int energyConsumedBySingleJump = 99;
+    private int energyConsumedBySingleJump = 3;
     private int energyConsumedByLandingOnPlatform = 7;
     private int energy = 100;
 
@@ -34,7 +34,7 @@ public class Move : MonoBehaviour
     {
         return energy;
     }
-    
+
     public void DecreaseHealth(int amount)
     {
         if (energy <= 0)
@@ -72,7 +72,7 @@ public class Move : MonoBehaviour
             playerJumped = true;
             rigidbody.AddForce(Vector3.up*jumpForcce, ForceMode.Impulse);
         }
-        
+
         if (Input.GetButtonUp("Jump") && playerJumped)
         {
             playerJumped = false;
@@ -80,8 +80,8 @@ public class Move : MonoBehaviour
             DecreaseHealth(energyConsumedBySingleJump);
         }
     }
-    
-    
+
+
     private bool isOnGround()
     {
         return Physics.CheckCapsule(collider.bounds.center,
