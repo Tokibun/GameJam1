@@ -665,7 +665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ce722497b8d1c48a649c55cb82a297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformPrefab: {fileID: 6872093926393264064, guid: 3a11d27a8f7c6e843b0841c304c2a0a5, type: 3}
+  platformPrefab: {fileID: 4590200426034746008, guid: c628ce1067b36874bbfa67aa58048aae, type: 3}
   sphereTransform: {fileID: 1776324967}
   spawnRadius: 10
   numPlatforms: 10
