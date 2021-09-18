@@ -8,20 +8,47 @@ public class Move : MonoBehaviour
     public int timesJumped = 0;
     
     private float speed = 0.8f;
-    private float jumpForcce = 0.03f;
+    private float jumpForcce = 0.1f;
     private bool playerJumped = false;
 
-    public LayerMask groundLayers;
+    private int energyConsumedBySingleJump = 3;
+    private int energyConsumedByLandingOnPlatform = 7;
+    private int energy = 100;
 
+    private int score = 0;
+
+
+    [SerializeField]
+    UpdateScore scoreUI;
+
+    public LayerMask groundLayers;
 
     private Rigidbody rigidbody;
     private CapsuleCollider collider;
     private Transform transform;
 
+    public int GetEnergy()
+    {
+        return energy;
+    }
+    
+    public void DecreaseHealth(int amount)
+    {
+        if (energy <= 0)
+        {
+            energy = 0;
+            return;
+        }
+        energy -= amount;
+        scoreUI.ChangeScore(energy, score);
+        Debug.Log(amount);
+    }
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         collider = GetComponent<CapsuleCollider>();
+        scoreUI.SetInitialScore(100);
     }
 
     void Update()
@@ -40,6 +67,7 @@ public class Move : MonoBehaviour
         {
             playerJumped = false;
             timesJumped++;
+            DecreaseHealth(energyConsumedBySingleJump);
         }
     }
     
@@ -49,4 +77,22 @@ public class Move : MonoBehaviour
         return Physics.CheckCapsule(collider.bounds.center,
             new Vector3(collider.bounds.center.x, collider.bounds.min.y, collider.bounds.center.z), collider.radius *.9f, groundLayers);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        if (collision.gameObject.CompareTag("Platform"))
+        {
+            DecreaseHealth(energyConsumedByLandingOnPlatform);
+        }
+    }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Platform"))
+    //    {
+    //        other.isTrigger = false;
+    //        energy -= energyConsumedBySingleJump;
+    //    }
+    //}
 }

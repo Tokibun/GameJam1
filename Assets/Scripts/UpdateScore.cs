@@ -13,9 +13,6 @@ public class UpdateScore : MonoBehaviour
     Text scoreText;
 
     private int score = 0;
-    private int energy = 100;
-
-    private int energyConsumedBySingleJump = 10;
 
     private void Start()
     {
@@ -23,29 +20,17 @@ public class UpdateScore : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            energy -= energyConsumedBySingleJump;
-            score += 1;
-        }
-        ChangeScore();
-    }
-
-    public void ChangeScore()
+    public void ChangeScore(int energy, int score)
     {
         bar.SetHealth(energy);
         scoreText.text = score.ToString();
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void SetInitialScore(int energy)
     {
-        if (other.CompareTag("iceblock"))
-        {
-            energy -= energyConsumedBySingleJump;
-        }
+        bar.SetMaxHealth(energy);
     }
+
 
 
 
