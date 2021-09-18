@@ -8,9 +8,9 @@ public class PlatformSpawner : MonoBehaviour
     public GameObject platformPrefab;
     public Transform sphereTransform;
 
-    public float spawnHeight = 3.0f;
-    public float spawnWidth = 8.0f;
-    public int numPlatforms = 5;
+    public float spawnHeight = 0.5f;
+    public float spawnWidth = 3.0f;
+    public int numPlatforms;
 
     public bool isSpawnTrigger = false;
 
@@ -32,16 +32,15 @@ public class PlatformSpawner : MonoBehaviour
 
     void SpawnPlatforms()
     {
-        float previousZ = 0;
-
+        float previousZ = 5;
         for (int i = 0; i < numPlatforms; i++)
         {
-            print("hi");
-            Vector2 spawnPositionXZ = Vector3.Scale(Random.insideUnitSphere, spawnArea);
+            
+            Vector2 spawnPositionXZ = Vector3.Scale(Random.insideUnitCircle, spawnArea);
             spawnPositionXZ.y += previousZ;
 
             Vector3 spawnPosition = new Vector3(spawnPositionXZ.x, 0.0f, spawnPositionXZ.y);
-            previousZ += 5;
+            previousZ += 3;
 
             RaycastHit hit;
             if (Physics.Raycast(transform.position + spawnPosition, Vector3.down, out hit))
