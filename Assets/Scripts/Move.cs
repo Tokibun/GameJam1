@@ -11,7 +11,7 @@ public class Move : MonoBehaviour
     private float jumpForcce = 0.03f;
     private bool playerJumped = false;
 
-    private int energyConsumedBySingleJump = 3;
+    private int energyConsumedBySingleJump = 99;
     private int energyConsumedByLandingOnPlatform = 7;
     private int energy = 100;
 
@@ -20,6 +20,9 @@ public class Move : MonoBehaviour
 
     [SerializeField]
     UpdateScore scoreUI;
+
+    [SerializeField]
+    GameObject gameOverUI;
 
     public LayerMask groundLayers;
 
@@ -49,10 +52,17 @@ public class Move : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         collider = GetComponent<CapsuleCollider>();
         scoreUI.SetInitialScore(100);
+        gameOverUI.SetActive(false);
     }
 
     void Update()
     {
+        if (energy <= 0)
+        {
+            gameOverUI.SetActive(true);
+            Time.timeScale = 0f;
+        }
+
         float moveHorizontal = 0;//Input.GetAxis("Horizontal");
         float moveVertical = 0;//Input.GetAxis("Vertical");
         Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
