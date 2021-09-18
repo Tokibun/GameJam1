@@ -8,7 +8,7 @@ public class Move : MonoBehaviour
     public int timesJumped = 0;
     
     private float speed = 0.8f;
-    private float jumpForcce = 0.1f;
+    private float jumpForcce = 0.03f;
     private bool playerJumped = false;
 
     private int energyConsumedBySingleJump = 3;
